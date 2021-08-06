@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application</title>
+    <script>
+      function checkInput(form) {
+        var message;
+        var i = 0;
+
+        if (form.checkValidity()) {
+          message =
+            "You're hired! We need a website overhaul. Have it done by Saturday midnight. We go live on Sunday.";
+        } else {
+          message =
+            "Sorry we can't hire you. You are deficient in these areas: ";
+          jobSkillsCBs = form.elements["jobSkills"];
+          while (i < jobSkillsCBs.length) {
+            if (!jobSkillsCBs[i].checkValidity()) {
+              message += "<br>" + jobSkillsCBs[i].value;
+            }
+            i++;
+          }
+        }
+        document.getElementById("message").innerHTML = message;
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Web Programmer Job Application</h2>
+    <p>We need the following skillset. Which skills do you possess?</p>
+    <form>
+      <input type="checkbox" name="jobSkills" value="HTML5" required />know
+      HTML5 <br />
+      <input type="checkbox" name="jobSkills" value="CSS" required />know CSS
+      <br />
+      <input
+        type="checkbox"
+        name="jobSkills"
+        value="coffee making"
+        required
+      />make good coffee <br /><br />
+      <input type="button" value="Submit" onclick="checkInput(this.form);" />
+    </form>
+    <p id="message"></p>
+  </body>
+</html>

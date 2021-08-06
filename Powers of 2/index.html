@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Powers of 2</title>
+    <style>
+      body {
+        display: flex;
+        align-items: flex-start;
+        background-color: rgb(255, 246, 250);
+      }
+      form,
+      img {
+        margin: 20px 20px 0;
+      }
+      h1 {
+        margin-top: 0;
+      }
+    </style>
+    <script>
+      function checkForPowerOf2(form) {
+        var numBox; //number control
+        var output; //output that display
+        var num; //user enter number value
+        var quotient; //number that keep divided by2
+        var wholeNumber; // is the quotient a whole number?
+
+        numBox = form.elements["number"];
+        output = form.elements["result"];
+
+        if (!numBox.checkValidity()) {
+          output.value =
+            "Invalid input. You must enter an integer 10 or greater.";
+        } else {
+          num = quotient = numBox.valueAsNumber;
+          wholeNumber = true;
+          do {
+            quotient /= 2;
+            if (quotient != Math.floor(quotient)) {
+              wholeNumber = false;
+            }
+          } while (wholeNumber && quotient > 1);
+
+          if (quotient == 1) {
+            output.value =
+              "Yes, " + num + " is a power of 2. You're so awesome!";
+          } else {
+            output.value = "Sorry, " + num + " is not a power of 2.";
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <h1>MATH IS FUN!</h1>
+      <label for="number"
+        >What is the largest power of 2 you can think of?</label
+      >
+      <br /><br />
+      <input type="number" id="number" min="10" step="1" required />
+      <br /><br />
+      <input
+        type="button"
+        value="Submit"
+        onclick="checkForPowerOf2(this.form);"
+      />
+      <br /><br />
+      <output id="result"></output>
+    </form>
+    <img src="./images/girlJuggling.jfif" width="128" height="212" alt="" />
+  </body>
+</html>

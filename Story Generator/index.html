@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Story Generator</title>
+    <script src="script.js" defer></script>
+    <style>
+      label {
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+        padding: 2px;
+      }
+      section > div {
+        display: inline-block;
+        color: red;
+      }
+      section#result {
+        color: blue;
+        display: none;
+      }
+      #return {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <section id="input">
+        <h1>Story Generator</h1>
+        <p>
+          Enter appropriate values in all of the text boxes. Then click the Done
+          button to generate a story with your entered values plugged into it.
+        </p>
+        <label for="noun">noun:</label>
+        <input type="text" id="noun" />
+        <br />
+        <label for="verb1">past tense verb:</label>
+        <input type="text" id="verb1" />
+        <br />
+        <label for="adj1">adjective:</label>
+        <input type="text" id="adj1" />
+        <br />
+        <label for="verb2">past tense verb:</label>
+        <input type="text" id="verb2" />
+        <br />
+        <label for="adj2">adjective:</label>
+        <input type="text" id="adj2" />
+        <br /><br />
+      </section>
+      <section id="result">
+        It was a dark and stormy night. A shot rang out! A
+        <div></div>
+        slammed. The maid
+        <div></div>
+        . Suddenly, a
+        <div></div>
+        ship appeared on the horizon! While millions of people
+        <div></div>
+        , the king lived in luxury. Meanwhile, on a
+        <div></div>
+        farm in Kansas, a boy was growing up. <br /><br />
+        The End
+        <br /><br /><br />
+      </section>
+      <input
+        type="button"
+        value="Done"
+        id="done"
+        onclick="storyGenerate(this.form);"
+      />
+      <input
+        type="button"
+        value="Reset"
+        id="reset"
+        onclick="resetTheForm(this.form);"
+      />
+      <input type="button" value="Return" id="return" onclick="goBack();" />
+    </form>
+  </body>
+</html>

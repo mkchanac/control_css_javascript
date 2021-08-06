@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Park Dorm Blog</title>
+    <style>
+      body {
+        background-color: azure;
+      }
+      .table {
+        display: table;
+      }
+      .row {
+        display: table-row;
+      }
+      .row > * {
+        display: table-cell;
+        vertical-align: top;
+        padding: 10px 20px 0 0;
+      }
+      #error {
+        display: none;
+        color: red;
+        margin-bottom: 20px;
+      }
+    </style>
+    <script src="dormBlog.js"></script>
+  </head>
+  <body>
+    <body>
+      <h2>Park University Residence Hall Blog Board</h2>
+      <form>
+        <label for="allComments"></label>
+        <textarea id="allComments" cols="80" rows="10" readonly></textarea>
+        <br />
+        <div class="table">
+          <div class="row">
+            <label for="dorm">Select a dorm: </label>
+            <label for="newComment">Your comment: </label>
+          </div>
+          <div class="row">
+            <div>
+              <select id="dorm" required>
+                <option label="  "></option>
+                <option>Chesnut Hall</option>
+                <option>Copley Quad</option>
+                <option>Browning Hall</option>
+                <option>Eaton Hall</option>
+                <option>Melrose Hall</option>
+                <option>Semple Hall</option>
+              </select>
+            </div>
+            <div>
+              <textarea
+                id="newComment"
+                cols="50"
+                rows="4"
+                required
+                spellcheck="true"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="error">You must select a dorm and enter a comment.</div>
+        <input type="button" value="Add" onclick="addComment(this.form);" />
+      </form>
+    </body>
+  </body>
+</html>
